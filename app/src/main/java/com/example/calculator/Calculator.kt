@@ -16,10 +16,10 @@ class Calculator {
         if (temp[3] == "+" || temp[3] == "-") {
             for(idx in 2 downTo 1){
                 when(temp[idx+2]){  // num2 oper2 num3  ||  num1 oper1 sum
-                    "+" -> sum = AddOperation(temp[idx-1].toDouble(), temp[idx].toDouble()).operation()
-                    "-" -> sum = SubstractOperation(temp[idx-1].toDouble(), temp[idx].toDouble()).operation()
-                    "*" -> sum = MultiplyOperation(temp[idx-1].toDouble(), temp[idx].toDouble()).operation()
-                    "/" -> sum = DivideOperation(temp[idx-1].toDouble(), temp[idx].toDouble()).operation()
+                    "+" -> sum = AddOperation().operation(temp[idx-1].toDouble(), temp[idx].toDouble())
+                    "-" -> sum = SubstractOperation().operation(temp[idx-1].toDouble(), temp[idx].toDouble())
+                    "*" -> sum = MultiplyOperation().operation(temp[idx-1].toDouble(), temp[idx].toDouble())
+                    "/" -> sum = DivideOperation().operation(temp[idx-1].toDouble(), temp[idx].toDouble())
                     else -> println("입력 값이 올바르지 않습니다.")
                 }
                 temp[1] = sum.toString()
@@ -28,10 +28,10 @@ class Calculator {
         } else {
             for(idx in 0 until 2){
                 when(temp[idx+3]){  // num1 oper1 num2 || sum oper2 num3
-                    "+" -> sum = AddOperation(temp[idx].toDouble(), temp[idx+1].toDouble()).operation()
-                    "-" -> sum = SubstractOperation(temp[idx].toDouble(), temp[idx+1].toDouble()).operation()
-                    "*" -> sum = MultiplyOperation(temp[idx].toDouble(), temp[idx+1].toDouble()).operation()
-                    "/" -> sum = DivideOperation(temp[idx].toDouble(), temp[idx+1].toDouble()).operation()
+                    "+" -> sum = AddOperation().operation(temp[idx].toDouble(), temp[idx+1].toDouble())
+                    "-" -> sum = SubstractOperation().operation(temp[idx].toDouble(), temp[idx+1].toDouble())
+                    "*" -> sum = MultiplyOperation().operation(temp[idx].toDouble(), temp[idx+1].toDouble())
+                    "/" -> sum = DivideOperation().operation(temp[idx].toDouble(), temp[idx+1].toDouble())
                     else -> println("입력 값이 올바르지 않습니다.")
                 }
                 temp[1] = sum.toString()
